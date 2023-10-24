@@ -1,5 +1,5 @@
 public class ConvertisseurNombresRomains {
     public static String Convertir(int chiffreArabe) {
-        return "I";
+        return chiffreArabe == 1 ? "I" : "II";
     }
 }
