@@ -1,30 +1,20 @@
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RomanNumbersTest {
 
-    @Test
-    void testUn() {
-        // ETANT DONNE le chiffre 1
-        final int chiffreArabe = 1;
-
+    @ParameterizedTest
+    @ValueSource(ints = { 1, 2 })
+    void testUnité(int chiffreArabe) {
+        // ETANT DONNE le chiffre <chiffre> compris entre 1 et 2
         // QUAND on le convertit en nombres romains
         String nombreRomain = ConvertisseurNombresRomains.Convertir(chiffreArabe);
 
-        // ALORS on obtient "I"
-        assertEquals("I", nombreRomain);
-    }
-
-    @Test
-    void testDeux() {
-        // ETANT DONNE le chiffre 2
-        final int chiffreArabe = 2;
-
-        // QUAND on le convertit en nombres romains
-        String nombreRomain = ConvertisseurNombresRomains.Convertir(chiffreArabe);
-
-        // ALORS on obtient "II"
-        assertEquals("II", nombreRomain);
+        // ALORS on obtient "I" répété <chiffre> fois
+        String attendu = "I".repeat(chiffreArabe);
+        assertEquals(attendu, nombreRomain);
     }
 }
