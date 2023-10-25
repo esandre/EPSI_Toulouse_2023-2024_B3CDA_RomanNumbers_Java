@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -14,6 +15,19 @@ public class RomanNumbersTest {
 
         // ALORS on obtient "I" répété <chiffre> fois
         String attendu = "I".repeat(chiffreArabe);
+        assertEquals(attendu, nombreRomain);
+    }
+
+    @Test
+    void testQuatre(){
+        // ETANT DONNE le chiffre 4
+        final int chiffreArabe = 4;
+
+        // QUAND on le convertit en nombres romains
+        String nombreRomain = ConvertisseurNombresRomains.Convertir(chiffreArabe);
+
+        // ALORS on obtient "IV"
+        String attendu = "IV";
         assertEquals(attendu, nombreRomain);
     }
 }
